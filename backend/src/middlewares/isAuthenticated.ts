@@ -27,6 +27,10 @@ export function isAuthenticated(
         //Valiar esse token  (Desconstruir o token pegar o sub e afirmar que é um Payload)
         const { sub } = verify( token, process.env.JWT_SECRET) as Payload
 
+        //Recuperar o id do token e colocar dentro de uma variavel user_id dentro do request.
+        //O user_id não existe por padrão dentro do request, tem que sobrescrever o type
+        req.user_id = sub
+        
         return next();
         
     } catch (error) {

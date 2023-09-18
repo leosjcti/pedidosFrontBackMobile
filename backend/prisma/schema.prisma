@@ -34,7 +34,7 @@ model Category {
 
 model Product {
   id String @id @default(uuid())
-  nome String
+  name String
   price String
   description String
   banner String

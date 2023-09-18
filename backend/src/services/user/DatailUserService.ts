@@ -8,13 +8,21 @@ interface AuthRequest {
 
 class DatailUserService {
     
-    async execute() {
+    async execute(user_id: string) {
 
+        const user = await primsaClient.user.findFirst({
+            where: {
+                id: user_id
+            },
+            select: {
+                id: true,
+                name: true,
+                email: true
+            }
+        })
        
 
-        return {
-           ok: true
-        }
+        return user;
     }
 }
 export { DatailUserService }
