@@ -21,6 +21,7 @@ export default function SignIn() {
         <SafeAreaView style={styles.container}>
             <Image
                 style={styles.logo}
+                width={110}
                 source={require('../../assets/logo.png')}
             />
 
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#1d1d2e"
     },    
     logo:{
-        marginBottom: 18
+        marginBottom: 18,
     },
     inputContainer:{
         width: '95%',

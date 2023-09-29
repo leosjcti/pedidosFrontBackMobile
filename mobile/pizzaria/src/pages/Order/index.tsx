@@ -7,6 +7,7 @@ import ModalPicker from "../../components/ModalPicker";
 import ListItem from "../../components/ListItem";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { StackParamsList } from "../../routes/app.routes";
+import Header from "../../components/Header";
 
 type RouteDetailParams = {
     Order: {
@@ -168,6 +169,11 @@ export default function Order() {
 
     return (
         <SafeAreaView style={styles.container}>
+
+
+            <Header />
+
+
             <View style={styles.header}>
                 <Text style={styles.title}>Mesa {route.params.number}</Text>
                 <TouchableOpacity onPress={handleCloseOrder}>

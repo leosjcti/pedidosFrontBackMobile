@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
+import { KeyboardAvoidingView, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { NativeStackNavigationProp, createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 import { StackParamsList } from "../../routes/app.routes";
 import { api } from "../../services/api";
+import Header from "../../components/Header";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,10 +14,10 @@ export default function Dashboard() {
     const [number, setNumber] = useState('');
 
     async function openOrder() {
-        if(number === ''){
+        if (number === '') {
             return;
         }
-        
+
         //Precisa fazer a requisicao e abrir a mesa e navegar para proxima tela.
         const response = await api.post('/order', {
             table: Number(number)
@@ -32,20 +33,26 @@ export default function Dashboard() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.title}> Novo pedido </Text>
 
-            <TextInput
-                placeholder="Numero da mesa"
-                placeholderTextColor="#f0f0f0"
-                style={styles.input}
-                keyboardType="numeric"
-                value={number}
-                onChangeText={setNumber}
-            />
+            <Header />
 
-            <TouchableOpacity style={styles.button} onPress={openOrder}>
-                <Text style={styles.buttonText}>Abrir mesa</Text>
-            </TouchableOpacity>
+            <KeyboardAvoidingView style={styles.form} behavior="padding" enabled>
+
+                <Text style={styles.title}> Novo pedido </Text>
+
+                <TextInput
+                    placeholder="Numero da mesa"
+                    placeholderTextColor="#f0f0f0"
+                    style={styles.input}
+                    keyboardType="numeric"
+                    value={number}
+                    onChangeText={setNumber}
+                />
+
+                <TouchableOpacity style={styles.button} onPress={openOrder}>
+                    <Text style={styles.buttonText}>Abrir mesa</Text>
+                </TouchableOpacity>
+            </KeyboardAvoidingView>
 
         </SafeAreaView>
     )
@@ -54,10 +61,14 @@ export default function Dashboard() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: "column",
+        backgroundColor: '#1d1d2e',
+    },
+    form: {
+        flex: 1,
         justifyContent: "center",
         alignItems: "center",
         paddingVertical: 15,
-        backgroundColor: '#1d1d2e'
     },
     title: {
         fontSize: 30,
