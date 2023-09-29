@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
 import Head from "next/head";
-import logoImg from '../../public/logo.svg'
+import logoImg from '../../public/logo.png'
 import styles from '../styles/home.module.scss'
 import Image from "next/image";
 import Link from "next/link";
@@ -42,7 +42,7 @@ export default function Home() {
         <title>Pizzaria - Faça seu login</title>
       </Head>
       <div className={styles.containerCenter}>
-        <Image src={logoImg} alt="Logo pizzaria" />
+        <Image src={logoImg} alt="Logo pizzaria" width={400} height={150} />
 
         <div className={styles.login}>
 

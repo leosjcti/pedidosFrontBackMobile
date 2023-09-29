@@ -16,6 +16,7 @@ https://www.prisma.io/
 
 
 
+
 ## Frontend
 - React
 - Typescript
@@ -43,9 +44,30 @@ https://axios-http.com/ptbr/docs/intro
 https://nextjs.org/docs/pages/building-your-application/rendering/server-side-rendering
 
 
+
+
 ## Mobile
 - React-Native
 
+
+#### React Navigation
+https://reactnavigation.org/docs/getting-started/
+
+#### Async Storage
+https://react-native-async-storage.github.io/async-storage/docs/usage/
+
+
+#### Estrutura
+- O app começa pelo arquivo App.tsx. Por volta de tudo, temos um NavigationContainer, que possibilita todas as paginas utilizarem os recursos de navegação.
+
+    ```
+    <NavigationContainer>
+      <AuthProvier>
+        <StatusBar backgroundColor="#1d1d2e" barStyle={'light-content'}translucent={false} />
+        <Routes/>
+      </AuthProvier>
+    </NavigationContainer>
+    ``
 
 
 
